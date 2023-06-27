@@ -284,11 +284,11 @@ input[type="file"] {
     cursor: pointer;
     color: rgb(255, 0, 0, 0.3);
 }
-.icon {
-    font-size: 1.15rem;
-    font-weight: 900;
-    
-  }
+
+.sort-button img {
+  width: 15px;
+}
+
   .sort-button:hover {
     color: #000000;
     rotate: 90deg;
