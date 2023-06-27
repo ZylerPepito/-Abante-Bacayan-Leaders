@@ -109,9 +109,10 @@ function createTableRow(id, name, address, phone) {
       tr.remove();
     const userRef = ref(db, `user/${id}`);
     set(userRef, null);
-     } else return
-    
-    
+     } else {
+      return
+     }
+
   });
 
   td5.classList.add('buttons-row');

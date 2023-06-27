@@ -276,3 +276,82 @@ input[type="file"] {
     object-fit: fit;
 }
 
+@media (max-width:800px) {
+    
+    .logo {
+        width: 300px;
+        object-fit: fit;
+    }
+
+    main {
+   
+        margin: 25px 10px;
+      }
+      .table-content {
+    
+        margin: 10px 10px;
+      }
+      table td {
+      flex-wrap: wrap;
+      
+      }
+      .logo {
+        width: 300px;
+      }
+      .Buttons-row {
+        margin: 0;
+        padding: 5px;
+      display: flex;
+      justify-content: space-between;
+      }
+      .deleteRow {
+        padding: 5px 10px;
+      }
+      .editRow {
+        margin-top: 5px;
+        padding: 5px 10px;
+      }
+      .modal-add {
+        height: 400px;
+        width: 350px;
+        background: whitesmoke;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 3px rgba(0,0,0, 0.3);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: fixed;
+       display: none;
+       animation-name: animatemodal;
+       animation-duration: 0.5s;
+       z-index: 9999;
+    
+    }
+     
+    #submit {
+      text-align: center;
+      width: 30%;
+      padding: 10px 0;
+      border: none;
+      background: rgb(167, 19, 19);
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 600;
+      border-radius: 10px;
+      border: 2px solid rgb(167, 19, 19);
+      cursor: pointer;
+      transition: 0.5s;
+      margin-top: 10px;
+      
+      }
+      table {
+        table-layout: fixed;
+      }
+      
+      td {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+      
+}
