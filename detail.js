@@ -229,7 +229,7 @@ function editTableRow(id, name, address, phone) {
       phone: updatedPhone,
       address: updatedAddress,
     });
- 
+    formEl.reset()
     modalContainer.style.display = 'none';
   };
 

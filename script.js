@@ -59,11 +59,13 @@ addBtn.addEventListener("click", function() {
 
 closeBtn.addEventListener("click", function() {
   modalContainer.style.display = "none";
+  form.reset()
 });
 
 window.addEventListener('click', function(e) {
   if (e.target === modalContainer) {
     modalContainer.style.display = 'none';
+    form.reset()
   }
 });
 
@@ -175,3 +177,30 @@ onValue(userRef, function(snapshot) {
     createTableRow(id, name, address, phone);
   });
 });
+
+//Sort Button
+
+const sortAddressButton = document.getElementById('sort-address')
+let isAddressSorted = false
+
+sortAddressButton.addEventListener('click', function(){
+  isAddressSorted = !isAddressSorted
+  sortTableByAddress(isAddressSorted)
+})
+
+function sortTableByAddress(ascending) {
+  const tableRows = Array.from(tableEl.getElementsByTagName('tr'));
+  const sortedRows = tableRows.slice(1).sort((rowA, rowB) => {
+    const addressA = rowA.cells[1].textContent.toLowerCase()
+    const addressB = rowB.cells[1].textContent.toLowerCase()
+    return ascending ? addressA.localeCompare(addressB) : addressB.localeCompare(addressA)
+
+  })
+
+  tableEl.innerHTML = '';
+  tableEl.appendChild(tableRows[0]);
+
+  sortedRows.forEach(row => {
+    tableEl.appendChild(row);
+  })
+}

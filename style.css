@@ -276,6 +276,25 @@ input[type="file"] {
     object-fit: fit;
 }
 
+.sort-button {
+    background: none;
+    border: none;
+    outline: none;
+    transition: .5s;
+    cursor: pointer;
+    color: rgb(255, 0, 0, 0.3);
+}
+.icon {
+    font-size: 1.15rem;
+    font-weight: 900;
+    
+  }
+  .sort-button:hover {
+    color: #000000;
+    rotate: 90deg;
+  }
+
+  
 @media (max-width:800px) {
     
     .logo {
