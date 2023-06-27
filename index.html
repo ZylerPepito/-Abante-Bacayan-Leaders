@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--font heading-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Tilt+Prism&display=swap" rel="stylesheet">    
+    <!--Font AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Nav</title>
+       <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-center">
+            <img class="logo" src="assets/356785489_578986581067150_480758671223092470_n.jpg">
+            
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="modal-add">
+                <form id="addForm">
+                    <div id="close-btn">&times;</div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                    <label for="Address">Address:</label>
+                    <input type="text" id="Address" Address="Address">
+                    <label for="phone"> Phone:</label>
+                    <input type="text" id="phone" name="phone">
+                    <!--
+                    <label for="picture">Picture:</label>
+
+                    <input type="file" id="picture" name="picture">
+                    -->
+                    <button id="submit">Submit</button>
+                </form>
+            </div>
+            <div class="title">
+                <div class="top">
+                    <h2 id="table-title" contenteditable="false">Leaders</h2>
+                </div>
+                <button id="add-btn"><i class="fas fa-plus"></i> Add</button>
+            </div>
+            
+            <table id="table-list">
+                <tr class="table-header">
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th colspan="2">Phone Number</th>
+                </tr>
+                
+            </table>
+        </div>
+    </main>
+    
+    <script src="script.js" type="module">
+        
+    </script>
+   
+</body>
+</html>
