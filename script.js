@@ -228,3 +228,32 @@ function sortTableByAddress(ascending) {
   })
   updateNumberColumn() 
 }
+
+
+//filter
+
+var input = document.getElementById("myFilter")
+
+input.addEventListener("keyup", myFunction) 
+
+function myFunction() {
+
+  var filter = input.value.toUpperCase();
+  var tableRows2 = tableEl.getElementsByTagName("tr");
+  var txtValue;
+  var td;
+
+
+  for (let i = 0; i < tableRows2.length; i++) {
+    td = tableRows2[i].getElementsByTagName("td")[2]
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tableRows2[i].style.display = ''
+      } else {
+        tableRows2[i].style.display = 'none';
+      }
+    }
+  }
+  console.log(tableRows2, txtValue, td)
+}
