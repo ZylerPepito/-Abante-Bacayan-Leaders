@@ -104,12 +104,13 @@ function createTableRow(id, name, address, phone) {
   const td5 = document.createElement('td');
   const deleteButton = document.createElement('button');
   deleteButton.classList.add('deleteRow');
-  deleteButton.innerHTML = 'Delete';
+  deleteButton.innerHTML = '<img src="delete.png"></img>';
+
 
   const td6 = document.createElement('td');
   const editButton = document.createElement('button');
   editButton.classList.add('editRow');
-  editButton.textContent = 'Edit';
+  editButton.innerHTML = '<img src="editing.png"></img>';
 
   editButton.addEventListener('click', function() {
     editTableRow(id, name, address, phone);

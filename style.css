@@ -219,12 +219,19 @@ input[type="file"] {
     }
 }
 
+.deleteRow img {
+  width: 18px;
+
+}
+.editRow img {
+  width: 18px;
+}
 .deleteRow {
-    
+
     background-color: #ff4d4d;
     border: none;
     color: var(--text);
-    padding: 10px 15px;
+    padding: 5px 5px;
     border-radius: 5px;
     font-weight: 800;
     cursor: pointer;
@@ -242,7 +249,7 @@ input[type="file"] {
     background-color: #8cd98c;
     border: none;
     color: #003300;
-    padding: 10px 15px;
+    padding: 5px 10px;
     border-radius: 5px;
     font-weight: 800;
     cursor: pointer;
@@ -348,7 +355,9 @@ input[type="file"] {
        z-index: 9999;
     
     }
-     
+    
+   
+    
     #submit {
       text-align: center;
       width: 30%;
@@ -373,5 +382,34 @@ input[type="file"] {
         word-wrap: break-word;
         overflow-wrap: break-word;
       }
+   
+      #tdNumbersHead {
+        width: 0px;
+        margin: 0;
+       padding: 25px;
+      }
+
       
+}
+
+@media (max-width:550px) {
+  #tdPhone {
+    display: none;
+    width: 0px;
+  }
+  .tdbuttons{ 
+    width: 0%;
+    padding: 0;
+   vertical-align: middle;
+  }
+
+  #tdName {
+    width: 130px;
+  }
+  #tdAddress  {
+     width: 100%;
+    
+     
+  }
+ 
 }
