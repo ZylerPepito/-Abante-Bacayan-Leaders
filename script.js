@@ -13,7 +13,6 @@ const firebaseConfig = {
   appId: "1:732972111020:web:b16447e0bb0b317053fb09"
 };
 
-var editHandler;
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -27,6 +26,9 @@ const tableEl = document.getElementById('table-list');
 
 // Form
 const form = document.getElementById('addForm');
+
+ var editHandler;
+
 
 const saveHandler = function(e) {
   e.preventDefault();
@@ -68,11 +70,22 @@ window.addEventListener('click', function(e) {
     form.reset()
   }
 });
-
+//let count = 1
+function updateNumberColumn() {
+    const numberCells = Array.from(tableEl.getElementsByClassName('number-column'));
+    numberCells.forEach((cell, index) => {
+    cell.textContent = index +1
+})
+}
 
 function createTableRow(id, name, address, phone) {
-  const tr = document.createElement('tr');
 
+ 
+  const tr = document.createElement('tr');
+ const tdNumber = document.createElement('td')
+ tdNumber.textContent = ''; //count++
+ tdNumber.classList.add('number-column');
+ 
   const td1 = document.createElement('td');
   td1.textContent = name;
 
@@ -99,7 +112,7 @@ function createTableRow(id, name, address, phone) {
   editButton.textContent = 'Edit';
 
   editButton.addEventListener('click', function() {
-    editTableRow(id, td1.textContent, td2.textContent, td3.textContent);
+    editTableRow(id, name, address, phone);
   });
 
   //const checkButton = document.createElement('input');
@@ -122,21 +135,26 @@ function createTableRow(id, name, address, phone) {
   td5.appendChild(deleteButton);
   td5.appendChild(editButton);
   //td5.appendChild(checkButton);
+  tr.appendChild(tdNumber)
   tr.appendChild(td1);
   tr.appendChild(td2);
   tr.appendChild(td3);
   tr.appendChild(td5);
   tableEl.appendChild(tr);
+
+  updateNumberColumn() 
 }
+
 
 function editTableRow(id, name, address, phone) {
   document.getElementById('name').value = name;
   document.getElementById('Address').value = address;
   document.getElementById('phone').value = phone;
 
+
   modalContainer.style.display = 'block';
 
-  var editHandler = function(e) {
+  editHandler = function(e) {
     e.preventDefault();
   
     const updatedName = document.getElementById('name').value;
@@ -151,12 +169,16 @@ function editTableRow(id, name, address, phone) {
       Address: updatedAddress,
     });
     
+  
     modalContainer.style.display = 'none';
   };
+  
 
   form.removeEventListener('submit', saveHandler);
   form.addEventListener('submit', editHandler);
 }
+
+
 
 const userRef = ref(db, 'user');
 
@@ -191,8 +213,8 @@ sortAddressButton.addEventListener('click', function(){
 function sortTableByAddress(ascending) {
   const tableRows = Array.from(tableEl.getElementsByTagName('tr'));
   const sortedRows = tableRows.slice(1).sort((rowA, rowB) => {
-    const addressA = rowA.cells[1].textContent.toLowerCase()
-    const addressB = rowB.cells[1].textContent.toLowerCase()
+    const addressA = rowA.cells[2].textContent.toLowerCase()
+    const addressB = rowB.cells[2].textContent.toLowerCase()
     return ascending ? addressA.localeCompare(addressB) : addressB.localeCompare(addressA)
 
   })
@@ -203,4 +225,5 @@ function sortTableByAddress(ascending) {
   sortedRows.forEach(row => {
     tableEl.appendChild(row);
   })
+  updateNumberColumn() 
 }

@@ -287,6 +287,7 @@ input[type="file"] {
 
 .sort-button img {
   width: 15px;
+  vertical-align: middle;
 }
 
   .sort-button:hover {
