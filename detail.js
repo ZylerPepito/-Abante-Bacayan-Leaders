@@ -30,17 +30,19 @@ onValue(userRef, function(snapshot) {
   const detailPhoneEl = document.getElementById('detail-phone');
   const detailLocationEl = document.getElementById('detail-Address');
 
+  
   detailNameEl.textContent = userData.username;
+
   if (userData.phone === "") {
       detailPhoneEl.textContent = ""
   } else {
-  detailPhoneEl.textContent = "Phone:" + " " + userData.phone;
+  detailPhoneEl.textContent =  userData.phone;
   } 
 
   if (userData.Address === "") {
     detailLocationEl.textContent = ""
   } else {
-    detailLocationEl.textContent = "Address:" + " " + userData.Address;
+    detailLocationEl.textContent = userData.Address;
   }
 
 
@@ -62,6 +64,7 @@ editDetailsBtn.addEventListener("click", function() {
     detailPhoneEl.classList.remove('editable');
     detailLocationEl.classList.remove('editable');
     editDetailsBtn.textContent = "Edit Details";
+    saveData();
   
   } else {
     editDetailsBtn.textContent = "Confirm";
@@ -76,6 +79,14 @@ editDetailsBtn.addEventListener("click", function() {
 
 function handleKeyPress(event) {
   if (event.key === 'Enter') {
+    detailNameEl.contentEditable = "false";
+    detailPhoneEl.contentEditable = "false";
+    detailLocationEl.contentEditable = "false";
+    editDetailsBtn.textContent = "Edit Details";
+    detailNameEl.classList.remove('editable');
+    detailPhoneEl.classList.remove('editable');
+    detailLocationEl.classList.remove('editable');
+    editDetailsBtn.textContent = "Edit Details";
     saveData();
   }
 }
@@ -99,11 +110,6 @@ function saveData() {
       .catch((error) => {
         console.error("Error updating data:", error);
       });
-
-    detailNameEl.contentEditable = "false";
-    detailPhoneEl.contentEditable = "false";
-    detailLocationEl.contentEditable = "false";
-    editDetailsBtn.textContent = "Edit Details";
   }
 }
 
